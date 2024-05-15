@@ -48,8 +48,8 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await ModelUsers.findOne({ email });
+        const body = req;
+        const user = await ModelUsers.findOne(email, body.email);
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).json({
                 status: 401,
