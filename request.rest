@@ -1,0 +1,32 @@
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwiaWF0IjoxNzE2NjUzNjU3LCJleHAiOjE3MTY2NTM3MTd9.yEuwmTpLKYHG9VybiWhEykeV2qH7brZyXY3Xm6IwEok
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "fullname": "John Doe",
+    "nickname": "johndoe123",
+    "email": "johndoe@example.com",
+    "phoneNumber": "123456789",
+    "password": "password123",
+    "confirmPassword": "password123"
+}
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "ayalarifki@gmail.com",
+    "password": "12345678"
+}
+
+###
+GET http://localhost:5000/token
+
+###
+DELETE http://localhost:5000/logout
+
+###
+GET http://localhost:5000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5pY2tuYW1lIjpudWxsLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwiaWF0IjoxNzE2NjUzNzAwLCJleHAiOjE3MTY2NTM3NjB9.Y7a0zAwDibEyP3Io32QkbnecKs_NyuDXo4MrNIa5uRw
