@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import Users from './model/UsersModel.js';
 import Menu from './model/MenuModel.js';
 import Order from './model/OrderModel.js';
+import cors from 'cors';
 import router from './routes/index.js';
 import routerMenu from './routes/menuRoutes.js';
 import routerOrder from './routes/orderRoutes.js';
@@ -13,11 +14,13 @@ const app = express();
 
 try {
     await db.authenticate();
-    console.log('Database connected....');
+    console.log('Database connected....');nb
 } catch (error) {
     console.error('Error: ' + error);
 }
 
+
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);
