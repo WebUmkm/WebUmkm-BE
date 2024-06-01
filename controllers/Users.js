@@ -14,22 +14,22 @@ export const getUsers = async (req, res) => {
 };
 
 export const getUserById = async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   try {
-    const user = await Users.findAll({
+    const user = await Users.findOne({
       where: {
         id: id,
       },
       attributes: ["fullname"],
     });
-    if(!user){
-      res.status(404).json({message: "User not found"})
-    };
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
     res.json(user);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const Register = async (req, res) => {
   const { fullname, nickname, email, phoneNumber, password, confirmPassword } =

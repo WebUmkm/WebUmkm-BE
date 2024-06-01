@@ -4,8 +4,8 @@ import { createMenu, getAllMenu, getAllMenuMakanan, updateMenu } from '../contro
 
 const routerMenu = express.Router();
 
-routerMenu.get('/',  getAllMenu);
-routerMenu.get('/:jenis_menu',  getAllMenuMakanan);
+routerMenu.get('/',  verifyToken, getAllMenu);
+routerMenu.get('/:jenis_menu',verifyToken, getAllMenuMakanan);
 routerMenu.post('/',  createMenu);
 routerMenu.put('/:id',  updateMenu);
 
