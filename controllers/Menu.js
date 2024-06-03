@@ -8,6 +8,7 @@ export const getAllMenu = async (req, res) => {
         "id",
         "nama_menu",
         "stock_menu",
+        "harga_menu",
         "description",
         "img_menu",
       ],
@@ -29,6 +30,7 @@ export const getAllMenuMakanan = async (req, res) => {
         "id",
         "nama_menu",
         "stock_menu",
+        "harga_menu",
         "description",
         "img_menu",
       ],
@@ -49,8 +51,8 @@ export const getAllMenuMakanan = async (req, res) => {
 };
 
 export const createMenu = async (req, res) => {
-  const { nama_menu, jenis_menu, stock_menu, description, img_menu } = req.body;
-  if (!nama_menu || !jenis_menu || !stock_menu || !description || !img_menu) {
+  const { nama_menu, jenis_menu, stock_menu, harga_menu, description, img_menu } = req.body;
+  if (!nama_menu || !jenis_menu || !stock_menu || !harga_menu || !description || !img_menu) {
     return res.status(400).json({ message: "All field must be filled" });
   }
   try {
@@ -58,6 +60,7 @@ export const createMenu = async (req, res) => {
       nama_menu: nama_menu,
       jenis_menu: jenis_menu,
       stock_menu: stock_menu,
+      harga_menu: harga_menu,
       description: description,
       img_menu: img_menu,
     });
@@ -67,6 +70,7 @@ export const createMenu = async (req, res) => {
         nama_menu: nama_menu,
         jenis_menu: jenis_menu,
         stock_menu: stock_menu,
+        harga_menu: harga_menu,
         description: description,
         img_menu: img_menu,
       },

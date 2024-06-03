@@ -13,6 +13,9 @@ const Menu = db.define('menu', {
     stock_menu: {
         type: DataTypes.STRING
     },
+    harga_menu: {
+        type: DataTypes.STRING
+    },
     description: {
         type: DataTypes.TEXT
     },
