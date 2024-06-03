@@ -2,17 +2,16 @@ import Keranjang from "../model/keranjangModel.js";
 import Menu from "../model/MenuModel.js";
 
 export const createCart = async (req, res) => {
-    const { id_menu, id_user, jumlah_pesanan, harga_pesanan, deskripsi_pesanan } = req.body;
-    if (!id_menu || !id_user || !jumlah_pesanan || !harga_pesanan || !deskripsi_pesanan) {
+    const { nama_menu, fullname, harga_pesanan, jumlah_pesanan } = req.body;
+    if (!nama_menu || !fullname || !harga_pesanan || !jumlah_pesanan) {
         return res.status(400).json({ message: "All field must be filled" });
     }
     try {
         await Keranjang.create({
-            id_menu: id_menu,
-            id_user: id_user,
-            jumlah_pesanan: jumlah_pesanan,
+            nama_menu: nama_menu,
+            fullname: fullname,
             harga_pesanan: harga_pesanan,
-            deskripsi_pesanan: deskripsi_pesanan,
+            jumlah_pesanan: jumlah_pesanan,
         });
         res.status(201).json({ message: "Cart created" });
     } catch (error) {

@@ -4,23 +4,17 @@ import db from "../config/database.js";
 const { DataTypes } = Sequelize;
 
 const Keranjang = db.define('Keranjang',{
-    id_keranjang: {
-        type: DataTypes.INTEGER
+    nama_menu: {
+        type: DataTypes.STRING
     },
-    id_menu: {
-        type: DataTypes.INTEGER
-    },
-    id_user: {
-        type: DataTypes.INTEGER
-    },
-    jumlah_pesanan: {
-        type: DataTypes.INTEGER
+    fullname: {
+        type: DataTypes.STRING
     },
     harga_pesanan: {
         type: DataTypes.STRING
     },
-    deskripsi_pesanan: {
-        type: DataTypes.STRING
+    jumlah_pesanan: {
+        type: DataTypes.INTEGER
     },
 }, {
     freezeTableName: true,

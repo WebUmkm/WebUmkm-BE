@@ -4,6 +4,6 @@ import { createCart } from '../controllers/keranjang.js';
 
 const routerCart = express.Router();
 
-routerCart.post('/cart/', createCart);
+routerCart.post('/cart/', verifyToken, createCart);
 
 export default routerCart;
