@@ -11,10 +11,10 @@ const Menu = db.define('menu', {
         type: DataTypes.STRING
     },
     stock_menu: {
-        type: DataTypes.STRING
+        type: DataTypes.INTEGER
     },
     harga_menu: {
-        type: DataTypes.STRING
+        type: DataTypes.DECIMAL(8,2)
     },
     description: {
         type: DataTypes.TEXT

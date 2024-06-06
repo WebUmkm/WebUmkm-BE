@@ -8,9 +8,9 @@ Content-Type: application/json
 
 {
     "fullname": "John Doe",
-    "nickname": "johndoe123",
+    "nickname": "",
     "email": "johndoe@example.com",
-    "phoneNumber": "123456789",
+    "phoneNumber": "",
     "password": "password123",
     "confirmPassword": "password123"
 }
@@ -31,7 +31,7 @@ DELETE http://localhost:5000/logout
 ###
 # get all menu
 GET http://localhost:5000/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTc1Nzc5ODQsImV4cCI6MTcxNzY2NDM4NH0.LFGFsWm_SeAGgNEWkflamE-MgeZAgHUxW7gXnAQAn4U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTc2NjIwOTcsImV4cCI6MTcxNzc0ODQ5N30.-0wTxdFv7CaI_Ofmexe-GEEhLg6m4g8PIjWs8DEzEnU
 
 ###
 # get makanan

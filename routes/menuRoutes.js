@@ -6,7 +6,7 @@ const routerMenu = express.Router();
 
 routerMenu.get('/',  verifyToken, getAllMenu);
 routerMenu.get('/:jenis_menu',verifyToken, getAllMenuMakanan);
-routerMenu.post('/',  createMenu);
+routerMenu.post('/', verifyToken,  createMenu);
 routerMenu.put('/:id',  updateMenu);
 
 export default routerMenu;

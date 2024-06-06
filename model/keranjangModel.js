@@ -11,7 +11,7 @@ const Keranjang = db.define('Keranjang',{
         type: DataTypes.STRING
     },
     harga_pesanan: {
-        type: DataTypes.STRING
+        type: DataTypes.DECIMAL(8,2)
     },
     jumlah_pesanan: {
         type: DataTypes.INTEGER

@@ -88,3 +88,30 @@ export const getidMenu = async (req, res) => {
     console.log(error);
   }
 }
+
+export const updateCart = async (req, res) => {
+  const { id } = req.params;
+  const { nama_menu, fullname, harga_pesanan, jumlah_pesanan } = req.body;
+  const cart = req.Keranjang.role;
+  if (cart !== "user"){
+    return res.status(403).json({
+      message: "access denied"
+    })
+  }
+  try {
+    const cartData = await Keranjang.findAll({
+      where: {
+        id : id
+      },
+      attribute: [
+        "nama_menu",
+        "fullname",
+        "harga_pesanan",
+        "jumlah_pesanan"
+      ]
+    })
+    
+  } catch (error) {
+    
+  }
+}
