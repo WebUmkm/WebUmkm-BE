@@ -2,8 +2,8 @@ const Produk = require("../models/product.js");
 const { storage, imageFilter, upload } = require("../middleware/image.js");
 
 exports.createProduct = async (req, res) => {
-  const { nama_menu, harga_menu, stock_menu, description, jenis_menu } = req.body;
-  const img_menu = req.file ? req.file.filename : null; // Ambil nama file gambar jika tersedia
+  const { nama_menu, harga_menu, stock_menu, description, img_menu, jenis_menu } = req.body;
+  // const img_menu = req.file ? req.file.filename : null; // Ambil nama file gambar jika tersedia
   try {
     const newProduct = new Produk({
       nama_menu,
@@ -73,28 +73,38 @@ exports.getProductByKategori = async (req, res) => {
   }
 };
 
+// exports.getProductById = async (req, res) => {
+//   const _id = req.params._id;
+
+//   try {
+//     const product = await Produk.findById(_id).select(
+//       "_id nama_produk harga stock deskripsi gambar kategori"
+//     );
+
+//     if (!product) {
+//       return res.status(404).json({
+//         message: "Product not found"
+//       });
+//     }
+
+//     res.status(200).json({
+//       message: "access defined",
+//       data: product
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Internal server error",
+//       error: error.message
+//     });
+//   }
+// }
+
 exports.getProductById = async (req, res) => {
-  const _id = req.params._id;
+  const id = req.params.id;
 
   try {
-    const product = await Produk.findById(_id).select(
-      "_id nama_produk harga stock deskripsi gambar kategori"
-    );
-
-    if (!product) {
-      return res.status(404).json({
-        message: "Product not found"
-      });
-    }
-
-    res.status(200).json({
-      message: "access defined",
-      data: product
-    });
+    const product = await Produk.find
   } catch (error) {
-    return res.status(500).json({
-      message: "Internal server error",
-      error: error.message
-    });
+    
   }
 }

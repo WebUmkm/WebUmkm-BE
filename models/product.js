@@ -9,6 +9,6 @@ const produkSchema = new Schema({
     img_menu: { type: String, required: true },
     jenis_menu: { type: String, required: true }
 });
-
-const Produk = mongoose.model('Menu', produkSchema);
+const collectionName = 'Menu';
+const Produk = mongoose.model('Menu', produkSchema, collectionName);
 module.exports = Produk;
