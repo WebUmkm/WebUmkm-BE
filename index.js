@@ -4,6 +4,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authRoutes.js');
 const productRoutes = require('./routes/productRoutes.js');
 const cartRoutes = require('./routes/cartRoutes.js');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
@@ -13,6 +14,16 @@ app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
+
+app.use(
+    cors({
+      origin: ["http://localhost:5000"],
+      methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
+      credentials: true,
+      optionsSuccessStatus: 200,
+      allowedHeaders: ["Content-Type", "Authorization"],
+    })
+  );
 
 app.use('/api/auth', authRoutes);
 app.use('/api/product', productRoutes);
