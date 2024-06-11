@@ -1,10 +1,21 @@
-NOTE:
-1. API PROFILE: GET BY id
-                UPDATE  PRODILE
-2. API CART : UPDATE CART
-              DELETE CART
-              CRATE CART
-              GET CART BY ID USER
-              TAAMBAH STATUS
-3. DATA METHOD: CREATE METHOD
-4. DATA SHIPPING METHOD : CREATE SHIPPING METHOD
+const express = require('express');
+const connectDB = require('./config/db');
+require('dotenv').config();
+const authRoutes = require('./routes/authRoutes.js');
+const productRoutes = require('./routes/productRoutes.js');
+
+
+const app = express();
+app.use(express.json());
+
+// Connect to MongoDB
+connectDB();
+
+app.use('/api/auth', authRoutes);
+app.use('/api/product', productRoutes);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

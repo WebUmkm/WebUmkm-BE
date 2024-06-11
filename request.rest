@@ -1,55 +1,5 @@
-# get all  users
-GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTcxNjI4NDIsImV4cCI6MTcxNzE2MjkwMn0.PXDvEZRqkyajaoiHDFSUw0ZoRqOxwFsdrthsWWSG5q4
-###
-# post register users
-POST http://localhost:5000/users
-Content-Type: application/json
-
-{
-    "fullname": "John Doe",
-    "nickname": "",
+POST http://localhost:3000/api/auth/login
+body: {
     "email": "johndoe@example.com",
-    "phoneNumber": "",
-    "password": "password123",
-    "confirmPassword": "password123"
-}
-###
-# post login
-POST http://localhost:5000/login
-Content-Type: application/json
-
-{
-    "email": "ayalarifki@gmail.com",
-    "password": "ayala123"
-}
-
-###
-# logout (belum bisa)
-DELETE http://localhost:5000/logout
-
-###
-# get all menu
-GET http://localhost:5000/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTc2NjIwOTcsImV4cCI6MTcxNzc0ODQ5N30.-0wTxdFv7CaI_Ofmexe-GEEhLg6m4g8PIjWs8DEzEnU
-
-###
-# get makanan
-GET http://localhost:5000/makanan
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTcxNjIwMjMsImV4cCI6MTcxNzI0ODQyM30.L3v1SBORvLqoOC6FjWaH4NUKoEBjmbArEiXlWcgFo2Q
-
-###
-# get minuman
-GET http://localhost:5000/minuman
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTcxNjIwMjMsImV4cCI6MTcxNzI0ODQyM30.L3v1SBORvLqoOC6FjWaH4NUKoEBjmbArEiXlWcgFo2Q
-
-###
-# get name by user id
-GET http://localhost:5000/user/:userId
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTc0MDAxNDAsImV4cCI6MTcxNzQ4NjU0MH0.l6tGrN_zh3W7VrSyGKjFRVRwO8SHe1J3jguu389PCT0
-
-###
-# create cart
-POST http://localhost:5000/cart/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZ1bGxuYW1lIjoiQWhtYWQgUmlma2kgQXlhbGEiLCJuaWNrbmFtZSI6ImRzIiwiZW1haWwiOiJheWFsYXJpZmtpQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDgyMTg0OTUyNTgyIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTc0MDAxNDAsImV4cCI6MTcxNzQ4NjU0MH0.l6tGrN_zh3W7VrSyGKjFRVRwO8SHe1J3jguu389PCT0
-
+    "password": "password123"
+    }
