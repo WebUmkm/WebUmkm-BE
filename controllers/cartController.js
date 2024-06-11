@@ -102,29 +102,57 @@ exports.createCart = async (req, res) => {
     }
   }
 
-  exports.getAllCartById = async (req, res) => {
-    const id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
+//   exports.getAllCartById = async (req, res) => {
+//     const id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
 
-    try {
-        const carts = await Cart.find({ id_pengguna }).populate('id_product');
+//     try {
+//         const carts = await Cart.find({ id_pengguna }).populate('id_product');
 
-        if (!carts || carts.length === 0) {
-            return res.status(404).json({
-                status: 404,
-                message: "No carts found for this user"
-            });
-        }
+//         if (!carts || carts.length === 0) {
+//             return res.status(404).json({
+//                 status: 404,
+//                 message: "No carts found for this user"
+//             });
+//         }
 
-        res.status(200).json({
-            status: 200,
-            message: "Carts retrieved successfully",
-            data: carts
-        });
-    } catch (error) {
-        res.status(500).json({
-            status: 500,
-            message: "Internal server error",
-            error: error.message
-        });
+//         res.status(200).json({
+//             status: 200,
+//             message: "Carts retrieved successfully",
+//             data: carts
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             status: 500,
+//             message: "Internal server error",
+//             error: error.message
+//         });
+//     }
+// };
+
+exports.getAllCart = async (req, res) => {
+  let id_pengguna = req.user._id;
+  try {
+    const carts = await Cart.find({ id_pengguna: id_pengguna }).select(
+      "_id id_product id_pengguna jumlah_product_cart"
+    );
+
+    if (!carts || carts.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No carts found for this user",
+      });
     }
+
+    res.status(200).json({
+      status: 200,
+      message: "Carts retrieved successfully",
+      data: carts,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
 };
