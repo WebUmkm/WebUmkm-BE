@@ -1,20 +1,10 @@
 const Cart = require("../models/cart.js");
-const Produk = require("../models/product.js");
 
 exports.createCart = async (req, res) => {
     const { id_product, jumlah_product_cart, total_pesanan } = req.body;
     let id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
   
     try {
-      // // Check if the product exists
-      // const product = await Produk.findById(id_product);
-      // if (!product) {
-      //   return res.status(404).json({
-      //     status: 404,
-      //     message: "Product not found",
-      //   });
-      // }
-  
       const newCart = new Cart({
         id_product,
         id_pengguna,
@@ -114,27 +104,27 @@ exports.createCart = async (req, res) => {
 
   exports.getAllCartById = async (req, res) => {
     const id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
-  
+
     try {
-      const carts = await Cart.find({ id_pengguna }).populate('id_product');
-  
-      if (!carts || carts.length === 0) {
-        return res.status(404).json({
-          status: 404,
-          message: "No carts found for this user",
+        const carts = await Cart.find({ id_pengguna }).populate('id_product');
+
+        if (!carts || carts.length === 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "No carts found for this user"
+            });
+        }
+
+        res.status(200).json({
+            status: 200,
+            message: "Carts retrieved successfully",
+            data: carts
         });
-      }
-  
-      res.status(200).json({
-        status: 200,
-        message: "Carts retrieved successfully",
-        data: carts,
-      });
     } catch (error) {
-      res.status(500).json({
-        status: 500,
-        message: "Internal server error",
-        error: error.message,
-      });
+        res.status(500).json({
+            status: 500,
+            message: "Internal server error",
+            error: error.message
+        });
     }
-  };
+};
