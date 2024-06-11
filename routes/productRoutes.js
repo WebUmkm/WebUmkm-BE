@@ -4,9 +4,9 @@ const { createProduct, getAllProduct, getProductByKategori, getProductById } = r
 const { storage, imageFilter, upload } = require('../middleware/image.js');
 
 
-router.post('/', upload.single('gambar'), createProduct);
+router.post('/', upload.single('img_menu'), createProduct);
 router.get('/', getAllProduct);
-router.get('/:kategori', getProductByKategori);
+router.get('/:jenis_menu', getProductByKategori);
 router.get('/:id', getProductById);
 
 module.exports = router;

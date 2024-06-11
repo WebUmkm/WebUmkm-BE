@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const produkSchema = new Schema({
-    nama_produk: { type: String, required: true },
-    harga: { type: Schema.Types.Decimal128, required: true },
-    stock: { type: Number, required: true },
-    deskripsi: { type: String, required: true },
-    gambar: { type: String, required: true },
-    kategori: { type: String, required: true }
+    nama_menu: { type: String, required: true },
+    harga_menu: { type: Schema.Types.Decimal128, required: true },
+    stock_menu: { type: Number, required: true },
+    description: { type: String, required: true },
+    img_menu: { type: String, required: true },
+    jenis_menu: { type: String, required: true }
 });
 
-const Produk = mongoose.model('Produk', produkSchema);
+const Produk = mongoose.model('Menu', produkSchema);
 module.exports = Produk;

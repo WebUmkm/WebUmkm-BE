@@ -2,28 +2,28 @@ const Produk = require("../models/product.js");
 const { storage, imageFilter, upload } = require("../middleware/image.js");
 
 exports.createProduct = async (req, res) => {
-  const { nama_produk, harga, stock, deskripsi, kategori } = req.body;
-  const gambar = req.file ? req.file.filename : null; // Ambil nama file gambar jika tersedia
+  const { nama_menu, harga_menu, stock_menu, description, jenis_menu } = req.body;
+  const img_menu = req.file ? req.file.filename : null; // Ambil nama file gambar jika tersedia
   try {
     const newProduct = new Produk({
-      nama_produk,
-      harga,
-      stock,
-      deskripsi,
-      gambar,
-      kategori,
+      nama_menu,
+      harga_menu,
+      stock_menu,
+      description,
+      img_menu,
+      jenis_menu,
     });
     await newProduct.save();
     res.status(201).json({
-      status: 201,
+      status: 201, 
       message: "Product created successfully",
       data: {
-        nama_produk: newProduct.nama_produk,
-        harga: newProduct.harga,
-        stock: newProduct.stock,
-        deskripsi: newProduct.deskripsi,
-        gambar: newProduct.gambar,
-        kategori: newProduct.kategori,
+        nama_menu: newProduct.nama_menu          ,
+        harga_menu: newProduct.harga_menu,
+        stock_menu: newProduct.stock_menu,
+        description: newProduct.description,
+        img_menu: newProduct.img_menu,
+        jenis_menu: newProduct.jenis_menu,
       },
     });
   } catch (error) {
@@ -51,10 +51,10 @@ exports.getAllProduct = async (req, res) => {
 };
 
 exports.getProductByKategori = async (req, res) => {
-  const { kategori } = req.params;
+  const { jenis_menu } = req.params;
   try {
-    const products = await Produk.find({ kategori: kategori }).select(
-      "_id nama_produk harga stock deskripsi gambar"
+    const products = await Produk.find({ jenis_menu: jenis_menu }).select(
+      "_id nama_menu harga_menu stock_menu description img_menu"
     );
 
     if (!products || products.length === 0) {
