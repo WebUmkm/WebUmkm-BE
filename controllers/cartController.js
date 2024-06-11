@@ -1,77 +1,111 @@
 const Cart = require("../models/cart.js");
 
-exports.createCart = async (req, res) => {
-    const { id_product, jumlah_product_cart, total_pesanan } = req.body;
-    let id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
+// exports.createCart = async (req, res) => {
+//     const { id_product, jumlah_product_cart, total_pesanan } = req.body;
+//     let id_pengguna = req.user._id; // Extracted from the token by the authenticate middleware
   
-    try {
-      const newCart = new Cart({
-        id_product,
-        id_pengguna,
-        jumlah_product_cart,
-        total_pesanan,
-      });
+//     try {
+//       const newCart = new Cart({
+//         id_product,
+//         id_pengguna,
+//         jumlah_product_cart,
+//         total_pesanan,
+//       });
   
-      await newCart.save();
+//       await newCart.save();
   
-      res.status(201).json({
-        status: 201,
-        message: "Cart created successfully",
-        data: {
-          id_product: newCart.id_product,
-          id_pengguna: newCart.id_pengguna,
-          jumlah_product_cart: newCart.jumlah_product_cart,
-          total_pesanan: newCart.total_pesanan,
-        },
-      });
-    } catch (error) {
-      // Error handling code here
-      res.status(500).json({
-        status: 500,
-        message: "Internal server error",
-        error: error.message,
-      });
-    }
-  };
+//       res.status(201).json({
+//         status: 201,
+//         message: "Cart created successfully",
+//         data: {
+//           id_product: newCart.id_product,
+//           id_pengguna: newCart.id_pengguna,
+//           jumlah_product_cart: newCart.jumlah_product_cart,
+//           total_pesanan: newCart.total_pesanan,
+//         },
+//       });
+//     } catch (error) {
+//       // Error handling code here
+//       res.status(500).json({
+//         status: 500,
+//         message: "Internal server error",
+//         error: error.message,
+//       });
+//     }
+//   };
 
-  exports.updateCart = async (req, res) => {
-    const { _id } = req.params;
-    const { jumlah_product_cart, total_pesanan } = req.body;
-  
-    try {
-      const cart = await Cart.findById(_id);
-  
-      if (!cart) {
-        return res.status(404).json({
-          status: 404,
-          message: "Cart not found",
-        });
-      }
-  
-      cart.jumlah_product_cart = jumlah_product_cart || cart.jumlah_product_cart;
-      cart.total_pesanan = total_pesanan || cart.total_pesanan;
-  
-      await cart.save();
-  
-      res.status(200).json({
-        status: 200,
-        message: "Cart updated successfully",
-        data: {
-          id_product: cart.id_product,
-          id_pengguna: cart.id_pengguna,
-          jumlah_product_cart: cart.jumlah_product_cart,
-          total_pesanan: cart.total_pesanan,
-        },
+exports.createCart = async (req, res) => {
+  const { products } = req.body;
+  let id_pengguna = req.user._id;
+
+  try {
+      const newCart = new Cart({
+          id_pengguna,
+          products
       });
-    } catch (error) {
-      // Error handling code here
+
+      await newCart.save();
+
+      res.status(201).json({
+          status: 201,
+          message: "Cart created successfully",
+          data: {
+              cart: newCart
+          }
+      });
+  } catch (error) {
       res.status(500).json({
-        status: 500,
-        message: "Internal server error",
-        error: error.message,
+          status: 500,
+          message: "Internal server error",
+          error: error.message
+      });
+  }
+};
+
+
+exports.updateCart = async (req, res) => {
+  const { _id } = req.params;
+  const { id_product, jumlah_product_cart } = req.body;
+
+  try {
+    const cart = await Cart.findOne({ _id: id_cart });
+
+    if (!cart) {
+      return res.status(404).json({
+        status: 404,
+        message: "Cart not found",
       });
     }
+
+    // Update specific product in the cart
+    const productIndex = cart.products.findIndex(
+      (product) => product.id_product.toString() === id_product
+    );
+
+    if (productIndex !== -1) {
+      // If the product exists, update it
+      cart.products[productIndex].jumlah_product_cart = jumlah_product_cart;
+    } else {
+      // If the product doesn't exist, add it to the cart
+      cart.products.push({ id_product, jumlah_product_cart });
+    }
+
+    await cart.save();
+
+    res.status(200).json({
+      status: 200,
+      message: "Cart updated successfully",
+      data: cart,
+    });
+  } catch (error) {
+    // Error handling code here
+    res.status(500).json({
+      status: 500,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
+};
 
   exports.deleteCart = async (req, res) => {
     const { _id } = req.params;
@@ -133,7 +167,7 @@ exports.getAllCart = async (req, res) => {
   let id_pengguna = req.user._id;
   try {
     const carts = await Cart.find({ id_pengguna: id_pengguna }).select(
-      "_id id_product id_pengguna jumlah_product_cart"
+      "_id id_pengguna products"
     );
 
     if (!carts || carts.length === 0) {
