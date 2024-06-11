@@ -7,6 +7,6 @@ const { storage, imageFilter, upload } = require('../middleware/image.js');
 router.post('/', createProduct);
 router.get('/', getAllProduct);
 router.get('/:jenis_menu', getProductByKategori);
-router.get('/:id', getProductById);
+router.get('/cari/:_id', getProductById);
 
 module.exports = router;

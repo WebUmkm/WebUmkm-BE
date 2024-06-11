@@ -100,11 +100,28 @@ exports.getProductByKategori = async (req, res) => {
 // }
 
 exports.getProductById = async (req, res) => {
-  const id = req.params.id;
+  const { _id } = req.params;
 
   try {
-    const product = await Produk.find
+    // Gunakan findById untuk mencari produk berdasarkan ID
+    const product = await Produk.findById(_id).select(
+      "_id nama_menu harga_menu stock_menu description img_menu jenis_menu"
+    );
+
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+        error: 404
+      });
+    }
+    res.status(200).json({
+      message: "Product found",
+      data: product
+    });
   } catch (error) {
-    
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message
+    });
   }
-}
+};
