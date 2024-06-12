@@ -3,9 +3,9 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema({
     id_product: { type: Schema.Types.ObjectId, ref: 'Menu', required: true },
-    nama_product: { type: String, required: true },
     jumlah_product_cart: { type: Number, required: true },
-});
+    isActive: { type: String, default: true },
+}, {_id: false });
 
 const cartSchema = new Schema({
     id_pengguna: { type: Schema.Types.ObjectId, ref: 'users', required: true },
