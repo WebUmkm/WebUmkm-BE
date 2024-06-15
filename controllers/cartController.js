@@ -62,10 +62,27 @@ exports.createCart = async (req, res) => {
 
 exports.updateCart = async (req, res) => {
   const { _id } = req.params;
-  const { id_product, jumlah_product_cart } = req.body;
+  let { id_product, jumlah_product_cart } = req.body;
+
+  // Jika input bukan array, bungkus dalam array
+  if (!Array.isArray(id_product)) {
+    id_product = [id_product];
+  }
+  if (!Array.isArray(jumlah_product_cart)) {
+    jumlah_product_cart = [jumlah_product_cart];
+  }
+
+  // Periksa apakah panjang array sama
+  if (id_product.length !== jumlah_product_cart.length) {
+    return res.status(400).json({
+      status: 400,
+      message:
+        "id_product, jumlah_product_cart, and isActive arrays must be of equal length",
+    });
+  }
 
   try {
-    const cart = await Cart.findOne({ _id: id_cart });
+    const cart = await Cart.findOne({ _id: _id });
 
     if (!cart) {
       return res.status(404).json({
@@ -74,18 +91,29 @@ exports.updateCart = async (req, res) => {
       });
     }
 
-    // Update specific product in the cart
-    const productIndex = cart.products.findIndex(
-      (product) => product.id_product.toString() === id_product
-    );
+    // Update atau tambahkan produk
+    id_product.forEach((productId, index) => {
+      const jumlah = jumlah_product_cart[index];
+      const productIndex = cart.products.findIndex(
+        (product) => product.id_product.toString() === productId
+      );
 
-    if (productIndex !== -1) {
-      // If the product exists, update it
-      cart.products[productIndex].jumlah_product_cart = jumlah_product_cart;
-    } else {
-      // If the product doesn't exist, add it to the cart
-      cart.products.push({ id_product, jumlah_product_cart });
-    }
+      if (productIndex !== -1) {
+        // Jika produk sudah ada, perbarui
+        cart.products[productIndex].jumlah_product_cart = jumlah;
+      } else {
+        // Jika produk tidak ada, tambahkan ke keranjang
+        cart.products.push({
+          id_product: productId,
+          jumlah_product_cart: jumlah,
+        });
+      }
+    });
+
+    // Hapus produk yang tidak ada di array id_product yang diperbarui
+    cart.products = cart.products.filter((product) =>
+      id_product.includes(product.id_product.toString())
+    );
 
     await cart.save();
 
@@ -95,13 +123,12 @@ exports.updateCart = async (req, res) => {
       data: cart,
     });
   } catch (error) {
-    // Error handling code here
     res.status(500).json({
       status: 500,
       message: "Internal server error",
       error: error.message,
-    });
-  }
+    });
+  }
 };
 
 exports.deleteCart = async (req, res) => {
