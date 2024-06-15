@@ -152,20 +152,29 @@ exports.deleteProductFromCart = async (req, res) => {
     if (productIndex !== -1) {
       // Remove the product from the cart
       cart.products.splice(productIndex, 1);
+      // Check if the cart's products array is empty after removal
+      if (cart.products.length === 0) {
+        // Delete the cart if no products are left
+        await cart.deleteOne();
+        return res.status(200).json({
+          status: 200,
+          message: "Cart deleted successfully as it became empty",
+        });
+      } else {
+        // Save the updated cart if there are still products left
+        await cart.save();
+        return res.status(200).json({
+          status: 200,
+          message: "Product removed from cart successfully",
+          data: cart,
+        });
+      }
     } else {
       return res.status(404).json({
         status: 404,
         message: "Product not found in the cart",
       });
     }
-
-    await cart.save();
-
-    res.status(200).json({
-      status: 200,
-      message: "Product removed from cart successfully",
-      data: cart,
-    });
   } catch (error) {
     res.status(500).json({
       status: 500,
