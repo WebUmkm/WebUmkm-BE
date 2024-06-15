@@ -229,3 +229,48 @@ exports.getAllCart = async (req, res) => {
     });
   }
 };
+
+exports.updateStatusCart = async (req, res) => {
+  const { _id } = req.params;
+  const { id_product, isActive } = req.body;
+
+  try {
+    const cart = await Cart.findOne({ _id });
+
+    if (!cart) {
+      return res.status(404).json({
+        status: 404,
+        message: "Cart not found",
+      });
+    }
+    // Find the product in the cart's products array
+    const productIndex = cart.products.findIndex(
+      (product) => product.id_product.toString() === id_product
+    );
+
+    if (productIndex !== -1) {
+      // Update the isActive status of the found product
+      cart.products[productIndex].isActive = isActive;
+
+      await cart.save();
+
+      // Respond with a success message and the updated cart data
+      return res.status(200).json({
+        status: 200,
+        message: "Product status updated successfully",
+        data: cart,
+      });
+    } else {
+      return res.status(404).json({
+        status: 404,
+        message: "Product not found in the cart",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
