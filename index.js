@@ -10,8 +10,10 @@ const productRoutes = require('./routes/productRoutes.js');
 const cartRoutes = require('./routes/cartRoutes.js');
 const imageRoutes = require('./routes/imageRoutes.js');
 const metodRoutes = require('./routes/metodRoutes.js');
+const orderRoutes = require('./routes/orderRoutes.js');
+const alamatpengirimanRoutes = require('./routes/alamatpengirimanRoutes.js');
 
-const MetodePembayaran = require('./models/metode_pembayaran.js'); 
+const alamatpengiriman = require('./models/alamat_pengiriman.js'); 
 
 const app = express();
 app.use(express.json());
@@ -35,11 +37,12 @@ app.use('/api/cart', cartRoutes);
 app.use(express.static('img'));
 app.use('/', imageRoutes);
 app.use('/api/payments', metodRoutes);
+app.use('/api/order', orderRoutes);
+app.use('/api/alamatpengiriman', alamatpengirimanRoutes);
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
 
 });
