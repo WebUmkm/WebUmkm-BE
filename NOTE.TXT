@@ -48,3 +48,15 @@ app.get('/images', (req, res) => {
             return res.status(500).send('Error reading directory');
         }
         res.
+
+--synchronized database
+  (async () => {
+    try {
+        console.log('Database connected....');
+        // Sinkronisasi model User ke database
+        await MetodePembayaran.init();
+        console.log('User model synchronized.');
+    } catch (error) {
+        console.error('Error: ' + error);
+    }
+})();
