@@ -4,15 +4,11 @@ const { Schema } = mongoose;
 
 const alamatPengirimanSchema = new Schema({
     id_pengguna: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
-    deskripsi_penerima: { type: String, required: true },
-    nomor_telepon: { type: String, required: true },
-    provinsi: { type: String, required: true },
-    kabupaten: { type: String, required: true },
-    kecamatan: { type: String, required: true },
-    desa: { type: String, required: true },
-    jalan: { type: String, required: true },
-    currentStatus: { type: String, required: true, default: 'Pending' }, // Initial status
-    currentLocation: { type: String, required: true, default: 'Warehouse' }, // Initial location
+    address: { type: String, required: true },
+    province: { type: String, required: true },
+    city: { type: String, required: true },
+    description: { type: String, required: true },
+    postal_code: { type: Number, required: true },
     lastUpdated: { type: Date, default: Date.now } // Timestamp for the last update
 });
 

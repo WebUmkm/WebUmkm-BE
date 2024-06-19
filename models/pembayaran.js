@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const pembayaranSchema = new Schema({
-    id_pembayaran: { type: Number, required: true, unique: true },
-    id_detail_pesanan: { type: Number, required: true },
-    metode_pembayaran: { type: String, required: true },
+    id_detail_pesanan: { type: Schema.Types.ObjectId, ref: 'DetailPesanan', required: true },
+    id_metode_pembayaran: { type: Schema.Types.ObjectId, ref: 'MetodePembayaran', required: true },
     bukti_pembayaran: { type: String },
     status_pembayaran: { type: String, required: true }
 });
 
-const Pembayaran = mongoose.model('Pembayaran', pembayaranSchema);
+const collectionName = 'Pembayaran';
+const Pembayaran = mongoose.model('Pembayaran', pembayaranSchema, collectionName);
 module.exports = Pembayaran;
