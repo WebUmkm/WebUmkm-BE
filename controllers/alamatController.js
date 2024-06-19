@@ -46,3 +46,27 @@ exports.getAllAlamatPengiriman = async (req, res) => {
         res.status(500).json({ message: 'An error occurred while fetching alamat pengiriman', error: error.message });
     }
 }
+
+exports.deleteAlamatPengiriman = async (req, res) => {
+    const { _id } = req.params;
+    try {
+        const alamat = await AlamatPengiriman.deleteOne({ _id });
+        if (alamat.deletedCount === 0) {
+            return res.status(404).json({
+              status: 404,
+              message: "address not found or already deleted",
+            });
+          }
+          res.status(200).json({
+            status: 200,
+            message: `${alamat.deletedCount} alamat(s) deleted successfully`,
+          });
+
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            message: "Internal server error",
+            error: error.message,
+          });
+    }
+}
