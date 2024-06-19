@@ -1,19 +1,18 @@
 const AlamatPengiriman = require('../models/alamat_pengiriman.js'); // Ensure the correct path to your model
 
 exports.createAlamatPengiriman = async (req, res) => {
-    const { deskripsi_penerima, address, province, city, description, postal_code } = req.body;
+    const { address, province, city, description, postal_code } = req.body;
     let id_pengguna = req.user._id;
 
     try {
         // Validate required fields
-        if (!deskripsi_penerima || !address || !province || !city || !description || !postal_code) {
+        if (!address || !province || !city || !description || !postal_code) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
         // Create a new AlamatPengiriman document
         const alamat = new AlamatPengiriman({
             id_pengguna, // Assuming req.userId is set by authentication middleware
-            deskripsi_penerima,
             address,
             province,
             city,
