@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const pembayaranSchema = new Schema({
-    id_detail_pesanan: { type: Schema.Types.ObjectId, ref: 'DetailPesanan', required: true },
-    id_metode_pembayaran: { type: Schema.Types.ObjectId, ref: 'MetodePembayaran', required: true },
+    id_pengguna: { type: Schema.Types.ObjectId, ref: 'users', required: true },
+    metode_pembayaran: { type: String, required: true },
     bukti_pembayaran: { type: String },
-    status_pembayaran: { type: String, required: true }
+    status_pembayaran: { type: String, required: true, default: "pending" }
 });
 
 const collectionName = 'Pembayaran';

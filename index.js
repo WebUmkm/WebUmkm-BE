@@ -13,7 +13,7 @@ const metodRoutes = require("./routes/metodRoutes.js");
 const orderRoutes = require("./routes/orderRoutes.js");
 const alamatpengirimanRoutes = require("./routes/alamatpengirimanRoutes.js");
 
-const alamatpengiriman = require("./models/alamat_pengiriman.js");
+const Pesanan = require("./models/pesanan.js");
 
 const app = express();
 app.use(express.json());
