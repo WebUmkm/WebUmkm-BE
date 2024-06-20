@@ -3,7 +3,6 @@ const { Schema } = mongoose;
 
 // Define the schema for the detail of each order item
 const detailPesananSchema = new Schema({
-    id_cart: { type: Schema.Types.ObjectId, required: true, ref: 'Cart' },
     id_product: { type: Schema.Types.ObjectId, required: true, ref: 'Menu' },
     Jumlah: { type: Number, required: true },
     total_harga: { type: Number, required: true, min: 0 }
@@ -11,7 +10,6 @@ const detailPesananSchema = new Schema({
 
 // Define the main order schema
 const pesananSchema = new Schema({
-    id_cart: { type: Schema.Types.ObjectId, ref: 'Cart', required: true },
     id_MetodePembayaran: { type: Schema.Types.ObjectId, ref: 'MetodePembayaran', required: true },
     id_alamat_pengiriman: { type: Schema.Types.ObjectId, ref: 'AlamatPengiriman', required: true },
     id_pembayaran: { type: Schema.Types.ObjectId, ref: 'Pembayaran', required: true },

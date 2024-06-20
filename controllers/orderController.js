@@ -10,7 +10,6 @@ exports.createOrder = async (req, res) => {
   try {
     let id_pengguna = req.user._id;
     const {
-      id_cart,
       id_MetodePembayaran,
       id_alamat_pengiriman,
       detail_pesanan,
@@ -64,7 +63,6 @@ exports.createOrder = async (req, res) => {
 
         // Create the order detail object
         return {
-          id_cart,
           id_product: item.id_product,
           Jumlah: item.jumlah,
           total_harga: itemTotalPrice,
@@ -74,7 +72,6 @@ exports.createOrder = async (req, res) => {
 
     // Create a new Order document
     const newOrder = new Order({
-      id_cart,
       id_MetodePembayaran,
       id_alamat_pengiriman,
       id_pembayaran: payment._id, // Reference the created payment record
@@ -102,7 +99,6 @@ exports.createOrder = async (req, res) => {
       status: 201,
       message: "Order created successfully",
       data: {
-        id_cart: newOrder.id_cart,
         id_MetodePembayaran: newOrder.id_MetodePembayaran,
         id_alamat_pengiriman: newOrder.id_alamat_pengiriman,
         id_pembayaran: newOrder.id_pembayaran,
