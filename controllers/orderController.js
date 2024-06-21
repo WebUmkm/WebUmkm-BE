@@ -66,6 +66,7 @@ exports.createOrder = async (req, res) => {
           id_product: item.id_product,
           Jumlah: item.jumlah,
           total_harga: itemTotalPrice,
+          metode_pengambilan: item.metode_pengambilan 
         };
       })
     );

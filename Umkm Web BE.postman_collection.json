@@ -4,7 +4,7 @@
 		"name": "Umkm Web BE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "31681870",
-		"_collection_link": "https://umkm-ai.postman.co/workspace/umkm-a%255Bi-Workspace~468023d3-ba9a-4baf-afb6-3448de06b66a/collection/31681870-1c229c7a-2b2b-41ba-a3d9-6ab358fdc27b?action=share&source=collection_link&creator=31681870"
+		"_collection_link": "https://umkm-ai.postman.co/workspace/umkm-a%5Bi-Workspace~468023d3-ba9a-4baf-afb6-3448de06b66a/collection/31681870-1c229c7a-2b2b-41ba-a3d9-6ab358fdc27b?action=share&source=collection_link&creator=31681870"
 	},
 	"item": [
 		{
@@ -191,14 +191,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "7|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY2ZjlmZDE1ODhlMjkzZTM0NDkwMzUiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiSm9obiBEb2UiLCJuaWNrbmFtZSI6ImpvaG5kb2UxMjMiLCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJwaG9uZU51bWJlciI6IjEyMzQ1Njc4OSIsImlhdCI6MTcxODEyNTE5OSwiZXhwIjoxNzE4MjExNTk5fQ.0_rSVTQOThxcwkHpnNns7MEfWo53Q1YIR3ect7f6bT8"
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzMiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZHMiLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiI4MjE4NDk1MjU4MiIsImlhdCI6MTcxODQ4OTkzNCwiZXhwIjoxNzE4NTc2MzM0fQ.YN74-0rfD5Uc6Jda766ELpyp_8rpEc9OsarGPYgTIYg"
 							}
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"jumlah_product_cart\": 1,\r\n    \"total_pesanan\": 12.000\r\n}",
+							"raw": "{\r\n    \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n    \"jumlah_product_cart\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -206,7 +206,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/cart/update/666882a8bcbb4c0cf45e0ea8",
+							"raw": "http://localhost:5000/api/cart/update/666e136a56660111ff3b3b17",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -216,7 +216,7 @@
 								"api",
 								"cart",
 								"update",
-								"666882a8bcbb4c0cf45e0ea8"
+								"666e136a56660111ff3b3b17"
 							],
 							"query": [
 								{
@@ -250,7 +250,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "2|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg4NzIyMTQsImV4cCI6MTcxODk1ODYxNH0.G1FIalrM31QY-MFN_Gol9-QtXQiWoVCjaQHT00EDE8Y"
+								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
 							}
 						},
 						"method": "GET",
@@ -312,7 +312,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "2|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg4NzIyMTQsImV4cCI6MTcxODk1ODYxNH0.G1FIalrM31QY-MFN_Gol9-QtXQiWoVCjaQHT00EDE8Y"
+								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
 							}
 						},
 						"method": "PUT",
@@ -328,7 +328,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
+							"raw": "{\r\n    \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
 						},
 						"url": "http://localhost:5000/api/cart/6673e8b4c8e4c868e7062457/product/status"
 					},
@@ -384,7 +384,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "2|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg4NzIyMTQsImV4cCI6MTcxODk1ODYxNH0.G1FIalrM31QY-MFN_Gol9-QtXQiWoVCjaQHT00EDE8Y"
+								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
 							}
 						},
 						"method": "POST",
@@ -396,7 +396,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 1\r\n        }\r\n    ],\r\n    \"total_harga\": 10000\r\n}",
+							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"metode_pengambilan\": \"Dine-In\"\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"metode_pengambilan\": \"Dine-In\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
