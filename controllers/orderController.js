@@ -14,6 +14,7 @@ exports.createOrder = async (req, res) => {
       id_alamat_pengiriman,
       detail_pesanan,
       total_harga,
+      metode_pengambilan
     } = req.body;
     // Find the active cart for the user
     const cart = await Cart.findOne({
@@ -65,8 +66,7 @@ exports.createOrder = async (req, res) => {
         return {
           id_product: item.id_product,
           Jumlah: item.jumlah,
-          total_harga: itemTotalPrice,
-          metode_pengambilan: item.metode_pengambilan 
+          total_harga: itemTotalPrice 
         };
       })
     );
@@ -77,6 +77,7 @@ exports.createOrder = async (req, res) => {
       id_alamat_pengiriman,
       id_pembayaran: payment._id, // Reference the created payment record
       id_pengguna: id_pengguna,
+      metode_pengambilan,
       detail_pesanan: orderDetails,
       total_harga: totalOrderPrice,
       tanggal_pesanan: new Date(),
@@ -103,6 +104,7 @@ exports.createOrder = async (req, res) => {
         id_MetodePembayaran: newOrder.id_MetodePembayaran,
         id_alamat_pengiriman: newOrder.id_alamat_pengiriman,
         id_pembayaran: newOrder.id_pembayaran,
+        metode_pengambilan: newOrder.metode_pengambilan,
         id_pengguna: newOrder.id_pengguna,
         detail_pesanan: newOrder.detail_pesanan,
         total_harga: newOrder.total_harga,

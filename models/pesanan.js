@@ -5,8 +5,7 @@ const { Schema } = mongoose;
 const detailPesananSchema = new Schema({
     id_product: { type: Schema.Types.ObjectId, required: true, ref: 'Menu' },
     Jumlah: { type: Number, required: true },
-    total_harga: { type: Number, required: true, min: 0 },
-    metode_pengambilan: { type: String }
+    total_harga: { type: Number, required: true, min: 0 }
 });
 
 // Define the main order schema
@@ -15,6 +14,7 @@ const pesananSchema = new Schema({
     id_alamat_pengiriman: { type: Schema.Types.ObjectId, ref: 'AlamatPengiriman' },
     id_pembayaran: { type: Schema.Types.ObjectId, ref: 'Pembayaran', required: true },
     id_pengguna: { type: Schema.Types.ObjectId, ref: 'users', required: true },
+    metode_pengambilan: { type: String },
     detail_pesanan: [detailPesananSchema], // Embed the detail schema
     total_harga: { type: Number, required: true, min: 0 },
     tanggal_pesanan: { type: Date, default: Date.now, required: true },
