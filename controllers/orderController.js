@@ -69,6 +69,19 @@ exports.createOrder = async (req, res) => {
     // Save the new order to the database
     await newOrder.save();
 
+    // Reduce the stock quantity for each product
+    await Promise.all(detail_pesanan.map(async (item) => {
+      const product = await Produk.findById(item.id_product);
+      if (!product) {
+        throw new Error(`Product with ID ${item.id_product} not found`);
+      }
+      if (product.stock_menu < item.jumlah) {
+        throw new Error(`Insufficient stock for product with ID ${item.id_product}`);
+      }
+      product.stock_menu -= item.jumlah;
+      await product.save();
+    }));
+
     // Mark the cart products as inactive and update status_final
     cart.products.forEach((product) => {
       if (product.isActive) {
@@ -137,3 +150,24 @@ exports.getOrdersByUserId = async (req, res) => {
       });
     }
   };
+
+exports.GetCountOrderByIdPengguna = async (req, res) => {
+  const { id_pengguna } = req.params;
+  try {
+    const countOrder = await Order.countDocuments({ id_pengguna });
+
+    res.status(200).json({
+      message: "Order count retrieved successfully",
+      data: {
+        id_pengguna,
+        countOrder
+      },
+    });
+  } catch (error) {
+    console.error("Error retrieving order count:", error);
+    res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+}

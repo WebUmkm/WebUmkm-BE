@@ -328,7 +328,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
+							"raw": "{\r\n    \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
 						},
 						"url": "http://localhost:5000/api/cart/6673e8b4c8e4c868e7062457/product/status"
 					},
@@ -404,6 +404,21 @@
 							}
 						},
 						"url": "http://localhost:5000/api/order/"
+					},
+					"response": []
+				},
+				{
+					"name": "get count order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/order/count/6667d6185790c638fec5ffc4"
 					},
 					"response": []
 				}
