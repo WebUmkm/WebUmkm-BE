@@ -1,10 +1,9 @@
 const Order = require("../models/pesanan.js");
-const Cart = require("../models/cart.js"); // Import the Cart model
-const MetodePembayaran = require("../models/metode_pembayaran.js"); // Import the MetodePembayaran model
+const Cart = require("../models/cart.js"); 
+const MetodePembayaran = require("../models/metode_pembayaran.js"); 
 const AlamatPengiriman = require("../models/alamat_pengiriman.js");
 const Produk = require("../models/product.js");
 const Pembayaran = require("../models/pembayaran.js");
-
 
 exports.createOrder = async (req, res) => {
   try {
@@ -13,9 +12,10 @@ exports.createOrder = async (req, res) => {
       id_MetodePembayaran,
       id_alamat_pengiriman,
       detail_pesanan,
-      total_harga,
+      total_harga, // Directly use total_harga from req.body
       metode_pengambilan
     } = req.body;
+
     // Find the active cart for the user
     const cart = await Cart.findOne({
       id_pengguna: id_pengguna,
@@ -24,6 +24,7 @@ exports.createOrder = async (req, res) => {
     if (!cart) {
       return res.status(404).json({ message: "Active cart not found" });
     }
+
     // Validate the payment method ID
     const paymentMethod = await MetodePembayaran.findById(id_MetodePembayaran);
     if (!paymentMethod) {
@@ -31,45 +32,25 @@ exports.createOrder = async (req, res) => {
     }
 
     // Validate the shipping address ID
-    const shippingAddress = await AlamatPengiriman.findById(
-      id_alamat_pengiriman
-    );
+    const shippingAddress = await AlamatPengiriman.findById(id_alamat_pengiriman);
     if (!shippingAddress) {
       return res.status(404).json({ message: "Shipping address not found" });
     }
 
     // Create the payment record
     const payment = new Pembayaran({
-      metode_pembayaran: paymentMethod.nama_metode, // Assuming the payment method has a `name` or `type` field
+      metode_pembayaran: paymentMethod.nama_metode, // Assuming the payment method has a `nama_metode` field
       status_pembayaran: "Pending", // Initial status for payment
       id_pengguna: id_pengguna,
     });
     await payment.save();
 
     // Prepare order details
-    let totalOrderPrice = 0;
-    const orderDetails = await Promise.all(
-      detail_pesanan.map(async (item) => {
-        // Fetch the latest product price from the Produk model
-        const productDetails = await Produk.findById(item.id_product);
-        if (!productDetails) {
-          throw new Error(`Product with ID ${item.id_product} not found`);
-        }
-
-        // Calculate total price for this item
-        const itemTotalPrice = productDetails.harga_menu * item.jumlah;
-
-        // Add to the total order price
-        totalOrderPrice += itemTotalPrice;
-
-        // Create the order detail object
-        return {
-          id_product: item.id_product,
-          Jumlah: item.jumlah,
-          total_harga: itemTotalPrice 
-        };
-      })
-    );
+    const orderDetails = detail_pesanan.map(item => ({
+      id_product: item.id_product,
+      Jumlah: item.jumlah,
+      total_harga: item.total_harga // Assumes detail_pesanan in req.body includes total_harga for each item
+    }));
 
     // Create a new Order document
     const newOrder = new Order({
@@ -79,7 +60,7 @@ exports.createOrder = async (req, res) => {
       id_pengguna: id_pengguna,
       metode_pengambilan,
       detail_pesanan: orderDetails,
-      total_harga: totalOrderPrice,
+      total_harga: total_harga, // Use the total_harga from req.body
       tanggal_pesanan: new Date(),
       status_pesanan: "Pending",
       isActive: true,
@@ -88,15 +69,17 @@ exports.createOrder = async (req, res) => {
     // Save the new order to the database
     await newOrder.save();
 
-    // Mark the cart products as inactive
+    // Mark the cart products as inactive and update status_final
     cart.products.forEach((product) => {
       if (product.isActive) {
         product.isActive = false;
+        product.status_final = true; // Add status_final field and set it to true
       }
     });
 
     // Save the updated cart
     await cart.save();
+    
     res.status(201).json({
       status: 201,
       message: "Order created successfully",
@@ -122,6 +105,8 @@ exports.createOrder = async (req, res) => {
     });
   }
 };
+
+
 exports.getOrdersByUserId = async (req, res) => {
     try {
       let id_pengguna = req.user._id;

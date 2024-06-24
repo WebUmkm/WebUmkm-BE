@@ -250,7 +250,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
 							}
 						},
 						"method": "GET",
@@ -312,7 +312,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
 							}
 						},
 						"method": "PUT",
@@ -345,7 +345,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "2|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg4NzIyMTQsImV4cCI6MTcxODk1ODYxNH0.G1FIalrM31QY-MFN_Gol9-QtXQiWoVCjaQHT00EDE8Y"
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
 							}
 						},
 						"method": "GET",
@@ -384,7 +384,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "3|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg5NTM0MDIsImV4cCI6MTcxOTAzOTgwMn0.7LNgS2x8uAsG9O5bDj9DufySt2wfWCMwAsG3wlOAvjw"
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
 							}
 						},
 						"method": "POST",
@@ -396,7 +396,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"total_harga\": 12.500\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"total_harga\": 12.500\r\n        }\r\n    ],\r\n    \"total_harga\": 12.500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -412,36 +412,6 @@
 		{
 			"name": "method pembayaran",
 			"item": [
-				{
-					"name": "get by id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "6|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzMiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZHMiLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiI4MjE4NDk1MjU4MiIsImlhdCI6MTcxODY4NDMwNiwiZXhwIjoxNzE4NzcwNzA2fQ.EBAT3uEngB6ijYfKS2Z9u6pggpMYHJOrHLqq6G_rwG8"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:5000/api/payments/find/66710b1630fab5d4858fc946"
-					},
-					"response": []
-				},
-				{
-					"name": "get all",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "6|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzMiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZHMiLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiI4MjE4NDk1MjU4MiIsImlhdCI6MTcxODY4NDMwNiwiZXhwIjoxNzE4NzcwNzA2fQ.EBAT3uEngB6ijYfKS2Z9u6pggpMYHJOrHLqq6G_rwG8"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:5000/api/payments/"
-					},
-					"response": []
-				},
 				{
 					"name": "create method",
 					"request": {
@@ -463,6 +433,36 @@
 							}
 						},
 						"url": "http://localhost:5000/api/payments/"
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "6|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzMiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZHMiLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiI4MjE4NDk1MjU4MiIsImlhdCI6MTcxODY4NDMwNiwiZXhwIjoxNzE4NzcwNzA2fQ.EBAT3uEngB6ijYfKS2Z9u6pggpMYHJOrHLqq6G_rwG8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/payments/"
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "6|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzMiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZHMiLCJlbWFpbCI6ImF5YWxhcmlma2lAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiI4MjE4NDk1MjU4MiIsImlhdCI6MTcxODY4NDMwNiwiZXhwIjoxNzE4NzcwNzA2fQ.EBAT3uEngB6ijYfKS2Z9u6pggpMYHJOrHLqq6G_rwG8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/payments/find/66710b1630fab5d4858fc946"
 					},
 					"response": []
 				},
@@ -541,6 +541,51 @@
 						"method": "DELETE",
 						"header": [],
 						"url": "http://localhost:5000/api/alamatpengiriman/667242da168e209124e1d317"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "upload image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bukti_pembayaran",
+									"type": "file",
+									"src": "postman-cloud:///1ef3249c-427d-4180-9750-77786bb5f402"
+								}
+							]
+						},
+						"url": "http://localhost:5000/api/upload/payments/667949b2fcb727938c64c0ea"
+					},
+					"response": []
+				},
+				{
+					"name": "get payments by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/payments/667949b2fcb727938c64c0ea"
 					},
 					"response": []
 				}

@@ -12,6 +12,7 @@ const imageRoutes = require("./routes/imageRoutes.js");
 const metodRoutes = require("./routes/metodRoutes.js");
 const orderRoutes = require("./routes/orderRoutes.js");
 const alamatpengirimanRoutes = require("./routes/alamatpengirimanRoutes.js");
+const pembayaranRoutes = require("./routes/pembayaranRoutes.js");
 
 const Pesanan = require("./models/pesanan.js");
 
@@ -41,10 +42,12 @@ app.use("/", imageRoutes);
 app.use("/api/payments", metodRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/alamatpengiriman", alamatpengirimanRoutes);
+app.use("/api", pembayaranRoutes);
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+
 
 });
