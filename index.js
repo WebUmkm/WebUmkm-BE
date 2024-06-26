@@ -13,6 +13,7 @@ const metodRoutes = require("./routes/metodRoutes.js");
 const orderRoutes = require("./routes/orderRoutes.js");
 const alamatpengirimanRoutes = require("./routes/alamatpengirimanRoutes.js");
 const pembayaranRoutes = require("./routes/pembayaranRoutes.js");
+const Profile = require("./routes/profileRoutes.js");
 
 const Pesanan = require("./models/pesanan.js");
 
@@ -43,6 +44,7 @@ app.use("/api/payments", metodRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/alamatpengiriman", alamatpengirimanRoutes);
 app.use("/api", pembayaranRoutes);
+app.use("/api/profile", Profile);
 
 const PORT = process.env.PORT || 5000;
 

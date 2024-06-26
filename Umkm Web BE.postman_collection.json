@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"fullname\": \"John Doe\",\r\n    \"nickname\": \"johndoe123\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"phoneNumber\": \"123456789\",\r\n    \"password\": \"password123\",\r\n    \"confirmPassword\": \"password123\"\r\n}",
+							"raw": "{\r\n    \"fullName\": \"Dinda Sanjaya\",\r\n    \"nickname\": \"Dinda123\",\r\n    \"email\": \"Dinda123@example.com\",\r\n    \"phoneNumber\": \"082184952582\",\r\n    \"password\": \"Dinda123\",\r\n    \"confirmPassword\": \"Dinda123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"todos@gmail.com\",\r\n    \"password\": \"1qazxsw2\"\r\n}",
+							"raw": "{\r\n    \"email\": \"Dinda123@example.com\",\r\n    \"password\": \"Dinda123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -384,7 +384,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+								"token": "5|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkzNjU3MzEsImV4cCI6MTcxOTQ1MjEzMX0.iUwvp9FUfliu2FCJtTvBgaLtejX_DuWlc4UsqWEQDy4"
 							}
 						},
 						"method": "POST",
@@ -396,7 +396,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"total_harga\": 12.500\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"total_harga\": 12.500\r\n        }\r\n    ],\r\n    \"total_harga\": 12.500\r\n}",
+							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"total_harga\": 12.500\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"total_harga\": 12.500\r\n        }\r\n    ],\r\n    \"total_harga\": 12.500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -419,6 +419,45 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:5000/api/order/count/6667d6185790c638fec5ffc4"
+					},
+					"response": []
+				},
+				{
+					"name": "update status order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "5|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkzNjU3MzEsImV4cCI6MTcxOTQ1MjEzMX0.iUwvp9FUfliu2FCJtTvBgaLtejX_DuWlc4UsqWEQDy4"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status_pesanan\": \"Completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/order/status/667b709d20abf22629c146e6"
+					},
+					"response": []
+				},
+				{
+					"name": "delete order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "5|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkzNjU3MzEsImV4cCI6MTcxOTQ1MjEzMX0.iUwvp9FUfliu2FCJtTvBgaLtejX_DuWlc4UsqWEQDy4"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/order/delete/667b709d20abf22629c146e6"
 					},
 					"response": []
 				}
@@ -601,6 +640,50 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:5000/api/payments/667949b2fcb727938c64c0ea"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "Get me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiN2U2MDM2M2E2NWIxYTBjOTUwZjAiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTkzNjkzNTEsImV4cCI6MTcxOTQ1NTc1MX0.oses9Hgy7wDo1Tg1xlRhJHp7_wcRFDiv7BVnmmlkoqY"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/profile/me"
+					},
+					"response": []
+				},
+				{
+					"name": "edit profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiN2U2MDM2M2E2NWIxYTBjOTUwZjAiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTkzNjkzNTEsImV4cCI6MTcxOTQ1NTc1MX0.oses9Hgy7wDo1Tg1xlRhJHp7_wcRFDiv7BVnmmlkoqY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"New Full Name\",\r\n    \"nickname\": \"newnickname\",\r\n    \"email\": \"newemail@example.com\",\r\n    \"phoneNumber\": \"0987654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/profile/edit"
 					},
 					"response": []
 				}

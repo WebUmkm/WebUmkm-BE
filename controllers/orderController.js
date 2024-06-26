@@ -10,7 +10,7 @@ exports.createOrder = async (req, res) => {
     let id_pengguna = req.user._id;
     const {
       id_MetodePembayaran,
-      id_alamat_pengiriman,
+      id_alamat_pengiriman, // This field can be null or undefined
       detail_pesanan,
       total_harga, // Directly use total_harga from req.body
       metode_pengambilan
@@ -31,10 +31,13 @@ exports.createOrder = async (req, res) => {
       return res.status(404).json({ message: "Payment method not found" });
     }
 
-    // Validate the shipping address ID
-    const shippingAddress = await AlamatPengiriman.findById(id_alamat_pengiriman);
-    if (!shippingAddress) {
-      return res.status(404).json({ message: "Shipping address not found" });
+    // Validate the shipping address ID if provided
+    let shippingAddress = null;
+    if (id_alamat_pengiriman) {
+      shippingAddress = await AlamatPengiriman.findById(id_alamat_pengiriman);
+      if (!shippingAddress) {
+        return res.status(404).json({ message: "Shipping address not found" });
+      }
     }
 
     // Create the payment record
@@ -55,7 +58,7 @@ exports.createOrder = async (req, res) => {
     // Create a new Order document
     const newOrder = new Order({
       id_MetodePembayaran,
-      id_alamat_pengiriman,
+      id_alamat_pengiriman: id_alamat_pengiriman || null, // Set to null if not provided
       id_pembayaran: payment._id, // Reference the created payment record
       id_pengguna: id_pengguna,
       metode_pengambilan,
@@ -118,8 +121,6 @@ exports.createOrder = async (req, res) => {
     });
   }
 };
-
-
 exports.getOrdersByUserId = async (req, res) => {
     try {
       let id_pengguna = req.user._id;
@@ -171,3 +172,71 @@ exports.GetCountOrderByIdPengguna = async (req, res) => {
     });
   }
 }
+
+exports.updateOrderStatus = async (req, res) => {
+  const { _id } = req.params; // Ambil orderId dari parameter URL
+  const { status_pesanan } = req.body; // Ambil status_pesanan dari body permintaan
+
+  // Validasi status_pesanan
+  const validStatuses = ['Pending', 'Completed', 'Cancelled'];
+  if (!validStatuses.includes(status_pesanan)) {
+    return res.status(400).json({
+      message: "Invalid status",
+      error: 400,
+    });
+  }
+
+  try {
+    // Temukan pesanan berdasarkan ID dan perbarui status
+    const updatedOrder = await Order.findByIdAndUpdate(
+      _id,
+      { status_pesanan },
+      { new: true } // Mengembalikan dokumen yang sudah diperbarui
+    );
+
+    if (!updatedOrder) {
+      return res.status(404).json({
+        message: "Order not found",
+        error: 404,
+      });
+    }
+
+    res.status(200).json({
+      message: "Order status updated successfully",
+      data: updatedOrder,
+    });
+  } catch (error) {
+    console.error("Error updating order status:", error);
+    res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+exports.deleteOrder = async (req, res) => {
+  const { _id } = req.params; // Ambil orderId dari parameter URL
+
+  try {
+    // Temukan dan hapus pesanan berdasarkan ID
+    const deletedOrder = await Order.findByIdAndDelete(_id);
+
+    if (!deletedOrder) {
+      return res.status(404).json({
+        message: "Order not found",
+        error: 404,
+      });
+    }
+
+    res.status(200).json({
+      message: "Order deleted successfully",
+      data: deletedOrder,
+    });
+  } catch (error) {
+    console.error("Error deleting order:", error);
+    res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
