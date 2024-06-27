@@ -47,7 +47,7 @@ exports.createOrder = async (req, res) => {
       id_pengguna: id_pengguna,
     });
     await payment.save();
-    // Set a timeout to update payment status to "cancelled" if no proof is uploaded within 5 minutes
+    // Set a timeout to update payment status to "c ancelled" if no proof is uploaded within 5 minutes
     setTimeout(async () => {
       try {
         const pembayaran = await Pembayaran.findById(payment._id);
