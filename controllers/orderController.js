@@ -1,6 +1,6 @@
 const Order = require("../models/pesanan.js");
-const Cart = require("../models/cart.js"); 
-const MetodePembayaran = require("../models/metode_pembayaran.js"); 
+const Cart = require("../models/cart.js");
+const MetodePembayaran = require("../models/metode_pembayaran.js");
 const AlamatPengiriman = require("../models/alamat_pengiriman.js");
 const Produk = require("../models/product.js");
 const Pembayaran = require("../models/pembayaran.js");
@@ -13,7 +13,7 @@ exports.createOrder = async (req, res) => {
       id_alamat_pengiriman, // This field can be null or undefined
       detail_pesanan,
       total_harga, // Directly use total_harga from req.body
-      metode_pengambilan
+      metode_pengambilan,
     } = req.body;
 
     // Find the active cart for the user
@@ -47,12 +47,27 @@ exports.createOrder = async (req, res) => {
       id_pengguna: id_pengguna,
     });
     await payment.save();
+    // Set a timeout to update payment status to "cancelled" if no proof is uploaded within 5 minutes
+    setTimeout(async () => {
+      try {
+        const pembayaran = await Pembayaran.findById(payment._id);
+        if (pembayaran && pembayaran.status_pembayaran === "Pending") {
+          pembayaran.status_pembayaran = "Cancelled";
+          await pembayaran.save();
+          console.log(
+            `Payment ${payment._id} cancelled due to no proof of payment`
+          );
+        }
+      } catch (err) {
+        console.error(`Error cancelling payment ${payment._id}:`, err);
+      }
+    }, 5 * 60 * 1000); // 5 minutes
 
     // Prepare order details
-    const orderDetails = detail_pesanan.map(item => ({
+    const orderDetails = detail_pesanan.map((item) => ({
       id_product: item.id_product,
       Jumlah: item.jumlah,
-      total_harga: item.total_harga // Assumes detail_pesanan in req.body includes total_harga for each item
+      total_harga: item.total_harga, // Assumes detail_pesanan in req.body includes total_harga for each item
     }));
 
     // Create a new Order document
@@ -73,17 +88,21 @@ exports.createOrder = async (req, res) => {
     await newOrder.save();
 
     // Reduce the stock quantity for each product
-    await Promise.all(detail_pesanan.map(async (item) => {
-      const product = await Produk.findById(item.id_product);
-      if (!product) {
-        throw new Error(`Product with ID ${item.id_product} not found`);
-      }
-      if (product.stock_menu < item.jumlah) {
-        throw new Error(`Insufficient stock for product with ID ${item.id_product}`);
-      }
-      product.stock_menu -= item.jumlah;
-      await product.save();
-    }));
+    await Promise.all(
+      detail_pesanan.map(async (item) => {
+        const product = await Produk.findById(item.id_product);
+        if (!product) {
+          throw new Error(`Product with ID ${item.id_product} not found`);
+        }
+        if (product.stock_menu < item.jumlah) {
+          throw new Error(
+            `Insufficient stock for product with ID ${item.id_product}`
+          );
+        }
+        product.stock_menu -= item.jumlah;
+        await product.save();
+      })
+    );
 
     // Mark the cart products as inactive and update status_final
     cart.products.forEach((product) => {
@@ -95,7 +114,7 @@ exports.createOrder = async (req, res) => {
 
     // Save the updated cart
     await cart.save();
-    
+
     res.status(201).json({
       status: 201,
       message: "Order created successfully",
@@ -122,35 +141,35 @@ exports.createOrder = async (req, res) => {
   }
 };
 exports.getOrdersByUserId = async (req, res) => {
-    try {
-      let id_pengguna = req.user._id;
-  
-      // Find all orders for the given user ID
-      const orders = await Order.find({ id_pengguna });
-  
-      // If no orders found, return a 404 status
-      if (!orders || orders.length === 0) {
-        return res.status(404).json({
-          status: 404,
-          message: "No orders found for the user",
-        });
-      }
-  
-      // Respond with the found orders
-      res.status(200).json({
-        status: 200,
-        message: "Orders retrieved successfully",
-        data: orders,
-      });
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-      res.status(500).json({
-        status: 500,
-        message: "Internal server error",
-        error: error.message,
+  try {
+    let id_pengguna = req.user._id;
+
+    // Find all orders for the given user ID
+    const orders = await Order.find({ id_pengguna });
+
+    // If no orders found, return a 404 status
+    if (!orders || orders.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No orders found for the user",
       });
     }
-  };
+
+    // Respond with the found orders
+    res.status(200).json({
+      status: 200,
+      message: "Orders retrieved successfully",
+      data: orders,
+    });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    res.status(500).json({
+      status: 500,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
 
 exports.GetCountOrderByIdPengguna = async (req, res) => {
   const { id_pengguna } = req.params;
@@ -161,7 +180,7 @@ exports.GetCountOrderByIdPengguna = async (req, res) => {
       message: "Order count retrieved successfully",
       data: {
         id_pengguna,
-        countOrder
+        countOrder,
       },
     });
   } catch (error) {
@@ -171,14 +190,14 @@ exports.GetCountOrderByIdPengguna = async (req, res) => {
       error: error.message,
     });
   }
-}
+};
 
 exports.updateOrderStatus = async (req, res) => {
   const { _id } = req.params; // Ambil orderId dari parameter URL
   const { status_pesanan } = req.body; // Ambil status_pesanan dari body permintaan
 
   // Validasi status_pesanan
-  const validStatuses = ['Pending', 'Completed', 'Cancelled'];
+  const validStatuses = ["Pending", "Completed", "Cancelled"];
   if (!validStatuses.includes(status_pesanan)) {
     return res.status(400).json({
       message: "Invalid status",

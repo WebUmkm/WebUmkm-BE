@@ -4,7 +4,7 @@
 		"name": "Umkm Web BE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "31681870",
-		"_collection_link": "https://umkm-ai.postman.co/workspace/umkm-a%255Bi-Workspace~468023d3-ba9a-4baf-afb6-3448de06b66a/collection/31681870-1c229c7a-2b2b-41ba-a3d9-6ab358fdc27b?action=share&source=collection_link&creator=31681870"
+		"_collection_link": "https://umkm-ai.postman.co/workspace/umkm-a%5Bi-Workspace~468023d3-ba9a-4baf-afb6-3448de06b66a/collection/31681870-1c229c7a-2b2b-41ba-a3d9-6ab358fdc27b?action=share&source=collection_link&creator=31681870"
 	},
 	"item": [
 		{
@@ -163,7 +163,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "2|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTg4NzIyMTQsImV4cCI6MTcxODk1ODYxNH0.G1FIalrM31QY-MFN_Gol9-QtXQiWoVCjaQHT00EDE8Y"
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiODBkNWQ3ZDI3NzQwYmExY2JkZDgiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTk0NTc1NjgsImV4cCI6MTcxOTU0Mzk2OH0.Uyo8lKoGF5304ll6bRQ9Afht8HcBoee_KMpWMcpHuIU"
 							}
 						},
 						"method": "POST",
@@ -250,7 +250,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiODBkNWQ3ZDI3NzQwYmExY2JkZDgiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTk0NTc1NjgsImV4cCI6MTcxOTU0Mzk2OH0.Uyo8lKoGF5304ll6bRQ9Afht8HcBoee_KMpWMcpHuIU"
 							}
 						},
 						"method": "GET",
@@ -312,7 +312,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiODBkNWQ3ZDI3NzQwYmExY2JkZDgiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTk0NTc1NjgsImV4cCI6MTcxOTU0Mzk2OH0.Uyo8lKoGF5304ll6bRQ9Afht8HcBoee_KMpWMcpHuIU"
 							}
 						},
 						"method": "PUT",
@@ -328,7 +328,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
+							"raw": "{\r\n    \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n    \"isActive\": true // or false, depending on the status you want to set\r\n}"
 						},
 						"url": "http://localhost:5000/api/cart/6673e8b4c8e4c868e7062457/product/status"
 					},
@@ -384,7 +384,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "5|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkzNjU3MzEsImV4cCI6MTcxOTQ1MjEzMX0.iUwvp9FUfliu2FCJtTvBgaLtejX_DuWlc4UsqWEQDy4"
+								"token": "1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjdiODBkNWQ3ZDI3NzQwYmExY2JkZDgiLCJyb2xlIjoidXNlciIsImZ1bGxOYW1lIjoiRGluZGEgU2FuamF5YSIsIm5pY2tuYW1lIjoiRGluZGExMjMiLCJlbWFpbCI6IkRpbmRhMTIzQGV4YW1wbGUuY29tIiwicGhvbmVOdW1iZXIiOiIwODIxODQ5NTI1ODIiLCJpYXQiOjE3MTk0NTc1NjgsImV4cCI6MTcxOTU0Mzk2OH0.Uyo8lKoGF5304ll6bRQ9Afht8HcBoee_KMpWMcpHuIU"
 							}
 						},
 						"method": "POST",
@@ -396,7 +396,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"total_harga\": 12.500\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"total_harga\": 12.500\r\n        }\r\n    ],\r\n    \"total_harga\": 12.500\r\n}",
+							"raw": "{\r\n    \"id_MetodePembayaran\": \"66710b1630fab5d4858fc946\",\r\n    \"id_alamat_pengiriman\": \"6673e955c8e4c868e706245c\",\r\n    \"metode_pengambilan\": \"Dine-In\",\r\n    \"detail_pesanan\": [\r\n        {\r\n            \"id_product\": \"6668748d26b8d69ff1d393c5\",\r\n            \"jumlah\": 2,\r\n            \"total_harga\": 12.500\r\n        },\r\n        {\r\n            \"id_product\": \"666874f526b8d69ff1d393cb\",\r\n            \"jumlah\": 3,\r\n            \"total_harga\": 12.500\r\n        }\r\n    ],\r\n    \"total_harga\": 12.500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -413,7 +413,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "4|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkyMjI1MzEsImV4cCI6MTcxOTMwODkzMX0.gD61QSFK7R5JcV9_74i7GX1b1PeBSfQs_S6ISkITUPQ"
+								"token": "5|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY3ZDYxODU3OTBjNjM4ZmVjNWZmYzQiLCJyb2xlIjoidXNlciIsIm5pY2tuYW1lIjoiZGluZGEiLCJlbWFpbCI6IkRpbmRhQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiODU2MjIzNTI3MDkiLCJpYXQiOjE3MTkzNjU3MzEsImV4cCI6MTcxOTQ1MjEzMX0.iUwvp9FUfliu2FCJtTvBgaLtejX_DuWlc4UsqWEQDy4"
 							}
 						},
 						"method": "GET",

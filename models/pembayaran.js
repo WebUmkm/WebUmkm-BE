@@ -6,7 +6,7 @@ const pembayaranSchema = new Schema({
     metode_pembayaran: { type: String, required: true },
     bukti_pembayaran: { type: String },
     status_pembayaran: { type: String, required: true, default: "pending" }
-});
+}, { timestamps: true });
 
 const collectionName = 'Pembayaran';
 const Pembayaran = mongoose.model('Pembayaran', pembayaranSchema, collectionName);

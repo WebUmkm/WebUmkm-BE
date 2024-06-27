@@ -12,13 +12,6 @@ const userSchema = new Schema({
     role: { type: String, default: 'user' }
 }, { timestamps: true });
 
-userSchema.set('toJSON', {
-    transform: (doc, ret) => {
-        ret.createdAt = moment(ret.createdAt).format('MM/DD/YYYY HH:mm');
-        ret.updatedAt = moment(ret.updatedAt).format('MM/DD/YYYY HH:mm');
-        return ret;
-    }
-});
 
 const User = mongoose.model('Users', userSchema);
 module.exports = User;
